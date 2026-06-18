@@ -14,7 +14,7 @@ ENV/
 .ipynb_checkpoints/
 
 # Large pickle files
-*.pkl
+# *.pkl (commented out to allow tracking of df.pkl, TFIDF_matrix.pkl, and indices.pkl)
 
 # Python cache files
 __pycache__/
