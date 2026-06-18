@@ -196,16 +196,22 @@ st.markdown("""
 @st.cache_resource
 def load_movie_data():
     try:
+        # Resolve paths relative to the script's directory to avoid CWD issues
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        df_path = os.path.join(base_dir, "df.pkl")
+        tfidf_path = os.path.join(base_dir, "TFIDF_matrix.pkl")
+        indices_path = os.path.join(base_dir, "indices.pkl")
+
         # Check if files exist
-        if not (os.path.exists("df.pkl") and os.path.exists("TFIDF_matrix.pkl") and os.path.exists("indices.pkl")):
-            st.error("Dataset pickles not found in workspace! Run the data generation code first.")
+        if not (os.path.exists(df_path) and os.path.exists(tfidf_path) and os.path.exists(indices_path)):
+            st.error(f"Dataset pickles not found in workspace! Searched in: {base_dir}")
             return None, None, None
             
-        with open("df.pkl", "rb") as f:
+        with open(df_path, "rb") as f:
             df = pickle.load(f)
-        with open("TFIDF_matrix.pkl", "rb") as f:
+        with open(tfidf_path, "rb") as f:
             tfidf_matrix = pickle.load(f)
-        with open("indices.pkl", "rb") as f:
+        with open(indices_path, "rb") as f:
             indices = pickle.load(f)
             
         # Clean numeric columns to prevent type errors (e.g. mixed float and string values)
