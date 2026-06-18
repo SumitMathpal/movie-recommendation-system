@@ -7,8 +7,10 @@ import streamlit as st
 from dotenv import load_dotenv
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Load environment variables
-load_dotenv()
+# Resolve path to .env file relative to this script
+base_dir = os.path.dirname(os.path.abspath(__file__))
+dotenv_path = os.path.join(base_dir, ".env")
+load_dotenv(dotenv_path)
 
 # Page configuration
 st.set_page_config(
