@@ -51,11 +51,11 @@ To build an intelligent recommendation system that helps users discover movies s
 The Streamlit-based interface allows users to:
 
 * Search and select movies.
-  <img src="images/homepage.png" width="800">
+  <img src="Images/homepage.png" width="800">
 * Receive personalized movie recommendations.
-   <img src="images/youtube.png" width="800">
+   <img src="Images/youtube.png" width="800">
 * View recommendations instantly through an interactive web application.
-   <img src="images/recommemdation.png" width="800">
+   <img src="Images/recommemdation.png" width="800">
 
 ## 🔮 Future Enhancements
 
